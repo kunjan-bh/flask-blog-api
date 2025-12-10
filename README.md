@@ -13,6 +13,7 @@ It includes user authentication, CRUD operations for blog posts, and pagination.
 * Clean modular folder structure
 
 ### Setup Instructions
+
 1. Clone Repository
 ``` bash
 git clone <your-repo-link>

@@ -5,21 +5,18 @@ from resources.auth import auth_bp
 from resources.posts import posts_bp
 
 
-
-
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
 
 
-# init extensions
     db.init_app(app)
     migrate.init_app(app, db)
     bcrypt.init_app(app)
     jwt.init_app(app)
 
 
-# register blueprints
+#
     app.register_blueprint(auth_bp)
     app.register_blueprint(posts_bp)
 
@@ -29,13 +26,12 @@ def create_app():
         return {"msg": "Welcome to the Flask Blog API. Use /posts for listing."}
 
 
-# create tables on first run if migrations not used
+
     with app.app_context():
         db.create_all()
 
 
     return app
-
 
 
 
