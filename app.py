@@ -9,21 +9,18 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
 
-
     db.init_app(app)
     migrate.init_app(app, db)
     bcrypt.init_app(app)
     jwt.init_app(app)
 
-
-#
     app.register_blueprint(auth_bp)
     app.register_blueprint(posts_bp)
-
 
     @app.route('/')
     def index():
         return {"msg": "Welcome to the Flask Blog API. Use /posts for listing."}
+    
 
 
 

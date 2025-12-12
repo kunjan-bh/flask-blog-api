@@ -49,3 +49,4 @@ def check_if_token_revoked(jwt_headers, jwt_payload):
     jti = jwt_payload.get('jti')
     token = TokenBlocklist.query.filter_by(jti=jti).first()
     return token is not None
+
